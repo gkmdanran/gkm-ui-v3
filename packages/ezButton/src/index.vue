@@ -68,7 +68,7 @@ function handleClick(event: Event) {
             }
         )
             .then(() => {
-                props.throttle === -1 ? emits("confirmClick", { status }) : emits("confirmClick")
+                props.throttle === -1 ? emits("confirmClick", status) : emits("confirmClick")
                 timstamp = new Date().valueOf();
                 props.throttle === -1 && (status.disabled = true)
             })
@@ -88,7 +88,7 @@ function handleClick(event: Event) {
             }
         )
             .then(() => {
-                props.throttle === -1 ? emits("confirmClick", { status }) : emits("confirmClick")
+                props.throttle === -1 ? emits("confirmClick", status) : emits("confirmClick")
                 timstamp = new Date().valueOf();
                 props.throttle === -1 && (status.disabled = true)
             })

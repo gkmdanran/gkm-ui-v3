@@ -1,89 +1,26 @@
 <template>
-  <ez-table ref="singleTableRef" :data="tableData" highlight-current-row style="width: 100%"
-    @current-change="handleCurrentChange" :table-json="json">
+  <ez-collapse-text text="业务线客户那边期望提前一下优先级，期望前上线，所以期望这个事情也加入到下周的优先开发事项中" v-model:expand="expand">
 
-  </ez-table>
-  <div style="margin-top: 20px">
-    <el-button @click="setCurrent(tableData[1])">Select second row</el-button>
-    <el-button @click="setCurrent()">Clear selection</el-button>
-  </div>
+
+  </ez-collapse-text>
+  <ez-collapse-list :data="data" v-model:expand="expand" :limit="2">
+    <template #unfold>
+      <ez-icon icon="CaretBottom"></ez-icon>
+    </template>
+    <template #fold>
+      <ez-icon icon="CaretRight"></ez-icon>
+    </template>
+    <template #default="scope">
+      {{scope.index}}\{{scope.row}}hh
+    </template>
+
+  </ez-collapse-list>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { ElTable } from "element-plus";
-
-interface User {
-  date: string;
-  name: string;
-  address: string;
-}
-const json = {
-  columns: [
-    {
-      type: 'index',
-
-    },
-    {
-      label: 'Data',
-      prop: 'date',
-
-    },
-
-    {
-      label: '1',
-
-      children: [
-        {
-          label: '2',
-
-          children: [
-            {
-              label: 'Address',
-              prop: 'address',
-
-            },
-            {
-              label: 'Name',
-              prop: 'name',
-              show: true,
-            },
-          ]
-        }
-      ]
-    },
-
-  ]
-}
-const currentRow = ref();
-const singleTableRef = ref();
-
-const setCurrent = (row?: User) => {
-  singleTableRef.value.ezTable.setCurrentRow(row)
-};
-const handleCurrentChange = (val: User | undefined) => {
-  currentRow.value = val;
-};
-const tableData: User[] = [
-  {
-    date: "2016-05-03",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-02",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-04",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-01",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-];
+const expand = ref<boolean>(false)
+const data = [
+  '12312', '321312', '231231212'
+]
 </script>

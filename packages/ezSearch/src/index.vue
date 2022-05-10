@@ -27,10 +27,28 @@
                         :model-value="modelValue[key]"
                         @update:modelValue="handleValueChange($event, modelValue[key], key, item)">
                         <el-option v-for="opt in item.selectOptions" v-bind="opt"
-                            :key="opt[(item.selectProps && item.selectProps.label) || 'label']"
+                            :key="opt[(item.selectProps && item.selectProps.value) || 'value']"
                             :value="opt[(item.selectProps && item.selectProps.value) || 'value']"
                             :label="opt[(item.selectProps && item.selectProps.label) || 'label']"></el-option>
                     </el-select>
+                    <!-- 单选框按钮 -->
+                    <el-radio-group v-else-if="item.type === 'radioButton'" style="width: 100%" v-bind="item.attrs"
+                        :model-value="modelValue[key]"
+                        @update:modelValue="handleValueChange($event, modelValue[key], key, item)">>
+                        <el-radio-button v-for="opt in item.selectOptions" v-bind="opt"
+                            :key="opt[(item.selectProps && item.selectProps.value) || 'value']"
+                            :label="opt[(item.selectProps && item.selectProps.value) || 'value']">
+                            {{ opt[(item.selectProps && item.selectProps.label) || 'label'] }}</el-radio-button>
+                    </el-radio-group>
+                    <!-- 单选框 -->
+                    <el-radio-group v-else-if="item.type === 'radio'" style="width: 100%" v-bind="item.attrs"
+                        :model-value="modelValue[key]"
+                        @update:modelValue="handleValueChange($event, modelValue[key], key, item)">>
+                        <el-radio v-for="opt in item.selectOptions" v-bind="opt"
+                            :key="opt[(item.selectProps && item.selectProps.value) || 'value']"
+                            :label="opt[(item.selectProps && item.selectProps.value) || 'value']">
+                            {{ opt[(item.selectProps && item.selectProps.label) || 'label'] }}</el-radio>
+                    </el-radio-group>
                     <!-- 时间选择器 -->
                     <el-time-picker v-else-if="item.type === 'timePicker'" clearable
                         :placeholder="item.placeholder || `请选择${item.label}`" style="width: 100%" v-bind="item.attrs"
@@ -59,7 +77,6 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { values } from 'lodash';
 import { defineProps } from 'vue'
 const props = defineProps({
     searchJson: {

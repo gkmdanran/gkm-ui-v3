@@ -7,6 +7,7 @@ import ezCollapseList from "./ezCollapseList/src/index.vue"
 import ezContainer from "./ezContainer/src/index.vue"
 import ezSearch from "./ezSearch/src/index.vue"
 import ezRadioGroup from "./ezRadioGroup/src/index.vue"
+import ezPanel from "./ezPanel/src/index.vue"
 import { App } from 'vue'
 const components = [
     ezIcon,
@@ -17,7 +18,8 @@ const components = [
     ezContainer,
     ezMenu,
     ezSearch,
-    ezRadioGroup
+    ezRadioGroup,
+    ezPanel
 ]
 export default function (app: App) {
     components.forEach(component => {

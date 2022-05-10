@@ -1,26 +1,89 @@
-<template>
-  <ez-collapse-text text="业务线客户那边期望提前一下优先级，期望前上线，所以期望这个事情也加入到下周的优先开发事项中" v-model:expand="expand">
-
-
-  </ez-collapse-text>
-  <ez-collapse-list :data="data" v-model:expand="expand" :limit="2">
-    <template #unfold>
-      <ez-icon icon="CaretBottom"></ez-icon>
+<template>{{ search }}
+  <ez-panel :panel-json="json" v-model:search="search" @changeSearch="change">
+    <template #chinese="scope">
+      {{ scope.row.chinese }}分
     </template>
-    <template #fold>
-      <ez-icon icon="CaretRight"></ez-icon>
-    </template>
-    <template #default="scope">
-      {{scope.index}}\{{scope.row}}hh
-    </template>
-
-  </ez-collapse-list>
+   
+    
+  </ez-panel>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-const expand = ref<boolean>(false)
-const data = [
-  '12312', '321312', '231231212'
-]
+import { ref } from 'vue'
+const search = ref({
+  name: '小明',
+  age: 1231
+})
+function change(val: any) {
+  console.log(val)
+}
+const json = {
+  breadcrumb: {
+    separator: '>>>',
+    navigations: [
+      { name: '训练中心', path: '/ccc' },
+      { name: "数据集管理", path: '/ccca' },
+    ]
+  },
+  search: {
+    setting: {
+      searchItems: {
+        name: {
+          label: '姓名',
+          type: 'input',
+          isTrim: true
+        },
+        age: {
+          label: '年龄',
+          type: 'input'
+        }
+      }
+    },
+    bindAttrs: {
+      debounce: 5000
+    }
+  },
+  table: {
+    setting: {
+      columns: [
+        {
+          label: '姓名',
+          prop: 'name',
+        }, {
+          label: '成绩',
+          children: [
+            {
+              label: '数学',
+              prop: 'math'
+            },
+            {
+              label: '语言',
+              children: [
+                {
+                  label: '中文',
+                  prop: 'chinese',
+                  slotName: 'chinese',
+                },
+                {
+                  label: '英文',
+                  prop: 'english'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    bindAttrs: {
+      data: [
+        { name: '小明', english: 90, chinese: 60, math: 71 },
+        { name: '小王', english: 93, chinese: 20, math: 78 },
+        { name: '小刚', english: 92, chinese: 40, math: 98 },
+        { name: '小白', english: 91, chinese: 60, math: 88 }
+      ]
+    }
+  }
+
+}
+
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="ez-panel">
-        <div class="breadcrumb">
+        <div class="breadcrumb" ref="bread">
             <slot name="breadTop"></slot>
             <el-breadcrumb v-bind="getBreadcrumbAttrs()" v-if="panelJson.breadcrumb">
                 <el-breadcrumb-item v-for="(nav, navIndex) in panelJson.breadcrumb.navigations || []" :key="navIndex"
@@ -10,7 +10,7 @@
             </el-breadcrumb>
             <slot name="breadBottom"></slot>
         </div>
-        <div class="container-box" style="height:calc(100% - 64px)">
+        <div class="container-box" :style="`height:calc(100% - ${breadHeight}px);background: ${containerColor};`">
             <slot name="containerTop"></slot>
             <ez-search v-if="panelJson.search" :search-json="panelJson.search.setting || {}"
                 v-bind="panelJson.search.bindAttrs" :model-value="search" @update:model-value="emitSearchForm"
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps, useSlots, computed } from 'vue'
+import { defineProps, useSlots, computed, ref, onMounted } from 'vue'
 import * as icons from '@element-plus/icons-vue'
 import ezSearch from '../../ezSearch/src/index.vue';
 const props = defineProps({
@@ -69,6 +69,10 @@ const props = defineProps({
         default: function () {
             return []
         },
+    },
+    containerColor: {
+        type: String,
+        default: 'transparent'
     }
 })
 const emits = defineEmits([
@@ -83,6 +87,8 @@ const emits = defineEmits([
     'refreshTable'
 ])
 const slots = useSlots()
+const bread = ref()
+const breadHeight = ref<number>(0)
 const pageKey = computed(() => {
     return props.panelJson?.pagination?.paginationProps?.page || 'page'
 })
@@ -137,25 +143,27 @@ function refreshTableData(search, pagination) {
         pagination: paginationForm
     })
 }
+onMounted(() => {
+    breadHeight.value = bread.value.offsetHeight
+})
+refreshTableData({ ...props.search }, { ...props.pagination })
 </script>
 <style scoped>
 .ez-panel {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    background-color: #f2f2f2;
-    padding: 0 20px 20px 20px;
+    padding: 20px;
 }
 
 .el-breadcrumb {
-    padding: 15px 0;
+    padding-bottom: 15px;
 }
 
 .container-box {
-    background-color: #fff;
+    box-sizing: border-box;
     padding: 15px;
     color: #666;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, .12);
 }
 
 .ez-search,
@@ -167,5 +175,14 @@ function refreshTableData(search, pagination) {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
+}
+
+.el-pagination>>>.btn-next,
+.el-pagination>>>.btn-prev {
+    background-color: transparent;
+}
+
+.el-pagination>>>.el-pager li {
+    background-color: transparent;
 }
 </style>

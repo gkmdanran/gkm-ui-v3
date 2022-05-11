@@ -31,4 +31,7 @@ defineExpose({
 .ez-menu {
     overflow-x: hidden;
 }
+.el-menu{
+    border-right: none;
+}
 </style>

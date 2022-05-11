@@ -15,16 +15,25 @@
             <ez-search v-if="panelJson.search" :search-json="panelJson.search.setting || {}"
                 v-bind="panelJson.search.bindAttrs" :model-value="search" @update:model-value="emitSearchForm"
                 @change="changeSearchForm">
+                <template #searchButton>
+                    <slot name="searchButton"></slot>
+                </template>
             </ez-search>
             <slot name="tableTop"></slot>
-            <ez-table v-if="panelJson.table" :table-json="panelJson.table.setting || {}"
+            <ez-table v-if="panelJson.table" :table-json="panelJson.table.setting || {}" :data="tableData"
                 v-bind="panelJson.table.bindAttrs">
                 <template v-for="slot in Object.keys(slots)" #[slot]="scope">
                     <slot :name="slot" v-bind="scope"></slot>
                 </template>
             </ez-table>
-
-
+            <slot name="tableBottom"></slot>
+            <div class="pagination" v-if="panelJson.pagination">
+                <el-pagination v-bind="panelJson.pagination.bindAttrs" :currentPage="pagination[pageKey]"
+                    :page-size="pagination[sizeKey]"
+                    :layout="panelJson.pagination.bindAttrs && panelJson.pagination.bindAttrs.layout ? panelJson.pagination.bindAttrs.layout : 'total, prev, pager, next'"
+                    :total="tableTotal" @current-change="changeCurrentPage" @size-change="changePageSize"
+                    @prev-click="handlePrevClick" @next-click="handleNextClick" />
+            </div>
             <slot name="containerBottom"></slot>
         </div>
     </div>
@@ -35,7 +44,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps, useSlots } from 'vue'
+import { defineProps, useSlots, computed } from 'vue'
 import * as icons from '@element-plus/icons-vue'
 import ezSearch from '../../ezSearch/src/index.vue';
 const props = defineProps({
@@ -47,11 +56,39 @@ const props = defineProps({
     },
     search: {
         type: Object,
-        required: true,
     },
+    pagination: {
+        type: Object,
+    },
+    tableTotal: {
+        type: Number,
+        default: 0
+    },
+    tableData: {
+        type: Array,
+        default: function () {
+            return []
+        },
+    }
 })
-const emits = defineEmits(['update:search', 'changeSearch'])
+const emits = defineEmits([
+    'update:search',
+    'changeSearch',
+    'update:pagination',
+    'changePagination',
+    'sizeChange',
+    'currentChange',
+    'prevClick',
+    'nextClick',
+    'refreshTable'
+])
 const slots = useSlots()
+const pageKey = computed(() => {
+    return props.panelJson?.pagination?.paginationProps?.page || 'page'
+})
+const sizeKey = computed(() => {
+    return props.panelJson?.pagination?.paginationProps?.size || 'size'
+})
 function getBreadcrumbAttrs() {
     const separator: string = props.panelJson.breadcrumb.separator || '/'
     if (Object.keys(icons).includes(separator)) {
@@ -64,13 +101,42 @@ function getBreadcrumbAttrs() {
         }
     }
 }
-function emitSearchForm(from) {
-    emits('update:search', from)
+function emitSearchForm(form) {
+    emits('update:search', form)
 }
-function changeSearchForm(from) {
-    emits('changeSearch', from)
+function changeSearchForm(form) {
+    emits('changeSearch', form)
+    emits('update:pagination', { ...props.pagination, [pageKey.value]: 1 })
+    refreshTableData({ ...form }, { ...props.pagination, [pageKey.value]: 1 })
 }
-
+function changeCurrentPage(page: number) {
+    emits('update:pagination', { ...props.pagination, [pageKey.value]: page })
+    emits('changePagination', { ...props.pagination, [pageKey.value]: page })
+    emits('currentChange', page)
+    refreshTableData({ ...props.search }, { ...props.pagination, [pageKey.value]: page })
+}
+function changePageSize(size: number) {
+    emits('update:pagination', { ...props.pagination, [sizeKey.value]: size })
+    emits('changePagination', { ...props.pagination, [sizeKey.value]: size })
+    emits('sizeChange', size)
+    refreshTableData({ ...props.search }, { ...props.pagination, [sizeKey.value]: size })
+}
+function handlePrevClick(page: number) {
+    emits('prevClick', page)
+}
+function handleNextClick(page: number) {
+    emits('nextClick', page)
+}
+function refreshTableData(search, pagination) {
+    let searchForm = props.panelJson.search ? search : null
+    let paginationForm = props.panelJson.pagination ? pagination : null
+    let combine = { ...searchForm, ...paginationForm }
+    emits('refreshTable', {
+        combine,
+        search: searchForm,
+        pagination: paginationForm
+    })
+}
 </script>
 <style scoped>
 .ez-panel {
@@ -95,5 +161,11 @@ function changeSearchForm(from) {
 .ez-search,
 .ez-table {
     padding-top: 5px
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
 }
 </style>

@@ -68,6 +68,7 @@
                     </el-date-picker>
                 </el-form-item>
             </el-col>
+            <slot name="searchButton"></slot>
         </el-row>
     </el-form>
 </template>

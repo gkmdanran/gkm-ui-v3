@@ -1,21 +1,38 @@
-<template>{{ search }}
-  <ez-panel :panel-json="json" v-model:search="search" @changeSearch="change">
+<template>{{ page }}
+  <ez-panel :panel-json="json" v-model:search="search" v-model:pagination="page" :tableTotal="1000" :tableData="data"
+    @refresh-table="change">
+    <template #searchButton>
+      <el-button>213</el-button>
+    </template>
     <template #chinese="scope">
       {{ scope.row.chinese }}分
     </template>
-   
-    
+
+
   </ez-panel>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref ,reactive} from 'vue'
 const search = ref({
   name: '小明',
   age: 1231
 })
-function change(val: any) {
-  console.log(val)
+const page = reactive({
+  page: 6,
+  pageSize: 10
+})
+function change({ combine, search, pagination }: any) {
+  console.log(combine, search, pagination)
+}
+function changeSearch(form: any) {
+  console.log(form)
+}
+function changpage(page: number) {
+  console.log(page)
+}
+function changepaeg(form: any) {
+  console.log(form)
 }
 const json = {
   breadcrumb: {
@@ -31,7 +48,9 @@ const json = {
         name: {
           label: '姓名',
           type: 'input',
-          isTrim: true
+          isTrim: true,
+          clearable: false,
+          placeholder: '323223'
         },
         age: {
           label: '年龄',
@@ -39,9 +58,7 @@ const json = {
         }
       }
     },
-    bindAttrs: {
-      debounce: 5000
-    }
+
   },
   table: {
     setting: {
@@ -74,16 +91,18 @@ const json = {
         }
       ]
     },
-    bindAttrs: {
-      data: [
-        { name: '小明', english: 90, chinese: 60, math: 71 },
-        { name: '小王', english: 93, chinese: 20, math: 78 },
-        { name: '小刚', english: 92, chinese: 40, math: 98 },
-        { name: '小白', english: 91, chinese: 60, math: 88 }
-      ]
-    }
-  }
+
+  },
+  pagination: {}
+
+
 
 }
+const data = [
+  { name: '小明', english: 90, chinese: 60, math: 71 },
+  { name: '小王', english: 93, chinese: 20, math: 78 },
+  { name: '小刚', english: 92, chinese: 40, math: 98 },
+  { name: '小白', english: 91, chinese: 60, math: 88 }
+]
 
 </script>

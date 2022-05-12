@@ -1,5 +1,7 @@
 import { defineAsyncComponent } from 'vue'
 
 export default ({ app }) => {
-  app.component("ButtonTest", defineAsyncComponent(() => import("C:/Users/kaiming.gu_sx/Desktop/DemoGKM/vue3ui/ez-ui/docs/.vuepress/components/ButtonTest.vue")))
+  app.component("ButtonClick", defineAsyncComponent(() => import("C:/Users/kaiming.gu_sx/Desktop/DemoGKM/vue3ui/ez-ui/docs/.vuepress/components/ButtonClick.vue"))),
+  app.component("ButtonCommon", defineAsyncComponent(() => import("C:/Users/kaiming.gu_sx/Desktop/DemoGKM/vue3ui/ez-ui/docs/.vuepress/components/ButtonCommon.vue"))),
+  app.component("ButtonConfirm", defineAsyncComponent(() => import("C:/Users/kaiming.gu_sx/Desktop/DemoGKM/vue3ui/ez-ui/docs/.vuepress/components/ButtonConfirm.vue")))
 }

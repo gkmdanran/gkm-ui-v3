@@ -7,8 +7,14 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": null,
-    "contributors": []
+    "updatedTime": 1652343049000,
+    "contributors": [
+      {
+        "name": "kaiming.gu_sx",
+        "email": "kaiming.gu_sx@aispeech.com",
+        "commits": 1
+      }
+    ]
   },
   "filePathRelative": "components/README.md"
 }

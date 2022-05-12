@@ -1,3 +1,8 @@
+import ElementPlus from 'element-plus'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import 'element-plus/dist/index.css'
+
+
 import ezIcon from "./ezIcon/src/index.vue"
 import ezTable from "./ezTable/src/index.vue"
 import ezButton from "./ezButton/src/index.vue"
@@ -22,6 +27,9 @@ const components = [
     ezPanel
 ]
 export default function (app: App) {
+    app.use(ElementPlus, {
+        locale: zhCn
+    })
     components.forEach(component => {
         app.component(component.name, component)
     })

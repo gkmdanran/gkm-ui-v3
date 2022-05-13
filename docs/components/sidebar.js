@@ -39,7 +39,10 @@ module.exports = [
                 text: 'RadioGroup 单选框组',
                 link: '/components/pages/Radio',
             },
-           
+            {
+                text: 'Search 搜索',
+                link: '/components/pages/Search',
+            },
         ]
     },
 ]

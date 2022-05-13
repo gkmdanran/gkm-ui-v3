@@ -108,7 +108,7 @@ function handleClick3(status) {
 
 ezButton属性和插槽均可参考[ElementPlus](https://element-plus.org/zh-CN/component/button.html#button-%E5%B1%9E%E6%80%A7)
 
-扩展属性
+ezButton扩展属性
 |参数|说明|类型|可选值|默认值|
 |-|-|-|-|-|
 |confirm|二次弹窗配置|string / confirmObj|-|-|
@@ -125,7 +125,7 @@ confirmObj
 |confirmText|确认按钮文案|string|-|'确定'|
 |cancelText|取消按钮文案|string|-|'取消'|
 
-事件
+ezButton事件
 |事件名称|说明|回调参数|
 |-|-|-|
 |confirmClick|点击确认按钮后的回调|throttle为-1时：status|

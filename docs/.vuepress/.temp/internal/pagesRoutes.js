@@ -4,6 +4,8 @@ const routeItems = [
   ["v-8daa1a0e","/",{"title":""},["/index.html","/README.md"]],
   ["v-1020f180","/components/",{"title":""},["/components/index.html","/components/README.md"]],
   ["v-b959d088","/components/pages/Button.html",{"title":"Button 按钮"},["/components/pages/Button","/components/pages/Button.md"]],
+  ["v-5f90e815","/components/pages/Icon.html",{"title":"Icon 按钮"},["/components/pages/Icon","/components/pages/Icon.md"]],
+  ["v-d8d98f54","/components/pages/Table.html",{"title":"Table 表格"},["/components/pages/Table","/components/pages/Table.md"]],
   ["v-3706649a","/404.html",{"title":""},["/404"]],
 ]
 

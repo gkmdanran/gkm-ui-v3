@@ -1,22 +1,16 @@
 export const data = {
-  "key": "v-b959d088",
-  "path": "/components/pages/Button.html",
-  "title": "Button 按钮",
+  "key": "v-5f90e815",
+  "path": "/components/pages/Icon.html",
+  "title": "Icon 按钮",
   "lang": "zh-CN",
   "frontmatter": {},
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": 1652353107000,
-    "contributors": [
-      {
-        "name": "kaiming.gu_sx",
-        "email": "kaiming.gu_sx@aispeech.com",
-        "commits": 2
-      }
-    ]
+    "updatedTime": null,
+    "contributors": []
   },
-  "filePathRelative": "components/pages/Button.md"
+  "filePathRelative": "components/pages/Icon.md"
 }
 
 if (import.meta.webpackHot) {

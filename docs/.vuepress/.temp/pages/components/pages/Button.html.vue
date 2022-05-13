@@ -94,7 +94,7 @@
 <span class="token punctuation">}</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>ezButton属性和插槽均可参考<a href="https://element-plus.org/zh-CN/component/button.html#button-%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener noreferrer">ElementPlus<ExternalLinkIcon/></a></p>
-<p>扩展属性</p>
+<p>ezButton扩展属性</p>
 <table>
 <thead>
 <tr>
@@ -185,7 +185,7 @@
 </tr>
 </tbody>
 </table>
-<p>事件</p>
+<p>ezButton事件</p>
 <table>
 <thead>
 <tr>

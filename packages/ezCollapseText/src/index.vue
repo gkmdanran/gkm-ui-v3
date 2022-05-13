@@ -1,6 +1,6 @@
 <template>
     <div class="ez-collapse-text">
-        <div v-show="!expand">
+        <div v-show="!selfExpand">
             <span class="text">{{
                     text.length > limit ? `${text.substring(0, limit)}...` : text
             }}</span>
@@ -8,7 +8,7 @@
                 <slot name="unfold">展开</slot>
             </el-button>
         </div>
-        <div v-show="expand">
+        <div v-show="selfExpand">
             <span class="text">{{ text }}</span>
             <el-button type="text" v-if="text.length > limit" @click="expandClick(false)">
                 <slot name="fold">收起</slot>
@@ -22,8 +22,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
-defineProps({
+import { defineProps, defineEmits, watch, ref } from 'vue'
+const props = defineProps({
     expand: {
         type: Boolean,
         default: false,
@@ -37,9 +37,15 @@ defineProps({
         default: 10,
     },
 })
-const emits = defineEmits(['update:expand'])
+
+const emits = defineEmits(['change'])
+const selfExpand = ref<boolean>(false)
+watch(() => props.expand, (val) => {
+    selfExpand.value = val
+}, { immediate: true })
 function expandClick(type: boolean) {
-    emits("update:expand", type)
+    selfExpand.value = type
+    emits('change', type)
 }
 </script>
 <style scoped>

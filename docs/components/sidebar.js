@@ -21,6 +21,10 @@ module.exports = [
                 text: 'Table 表格',
                 link: '/components/pages/Table',
             },
+            {
+                text: 'CollapseText 折叠文本',
+                link: '/components/pages/CollapseText',
+            },
         ]
     },
 ]

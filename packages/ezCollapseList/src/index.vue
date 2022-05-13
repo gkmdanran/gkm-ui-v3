@@ -1,14 +1,14 @@
 <template>
     <div class="ez-collapse-list">
         <div class="collapse-item" v-for="(item, index) in data" :key="index"
-            v-show="expand || (!expand && index < limit)">
+            v-show="selfExpand || (!selfExpand && index < limit)">
             <slot :row="item" :index="index">{{ item }}</slot>
             <div class="btns"
-                v-if="data.length > limit && ((expand && index === data.length - 1) || (!expand && index === limit - 1))">
-                <el-button v-show="!expand" type="text" @click="expandClick(true)">
+                v-if="data.length > limit && ((selfExpand && index === data.length - 1) || (!selfExpand && index === limit - 1))">
+                <el-button v-show="!selfExpand" type="text" @click="expandClick(true)">
                     <slot name="unfold">展开</slot>
                 </el-button>
-                <el-button type="text" v-show="expand" @click="expandClick(false)">
+                <el-button type="text" v-show="selfExpand" @click="expandClick(false)">
                     <slot name="fold">收起</slot>
                 </el-button>
             </div>
@@ -21,8 +21,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
-defineProps({
+import { defineProps, defineEmits, watch, ref } from 'vue'
+const props = defineProps({
     expand: {
         type: Boolean,
         default: false,
@@ -36,9 +36,14 @@ defineProps({
         default: 1,
     },
 })
-const emits = defineEmits(['update:expand'])
+const emits = defineEmits(['change'])
+const selfExpand = ref<boolean>(false)
+watch(() => props.expand, (val) => {
+    selfExpand.value = val
+}, { immediate: true })
 function expandClick(type: boolean) {
-    emits("update:expand", type)
+    selfExpand.value = type
+    emits('change', type)
 }
 </script>
 <style scoped>

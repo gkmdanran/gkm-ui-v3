@@ -10,6 +10,10 @@ module.exports = [
             {
                 text: 'Icon 图标',
                 link: '/components/pages/Icon',
+            },
+            {
+                text: 'Container 容器',
+                link: '/components/pages/Container',
             }
         ]
     },

@@ -1,5 +1,11 @@
 <template>
-    <ez-search :search-json="searchJson" v-model="searchForm" label-width="80px" @change="handleChange" :debounce="500">
+    <ez-search 
+        :search-json="searchJson" 
+        v-model="searchForm" 
+        label-width="80px" 
+        @change="handleChange" 
+        :debounce="500"
+    >
         <template #searchButton>
             <ez-button>重 置</ez-button>
         </template>

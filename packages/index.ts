@@ -1,5 +1,5 @@
 import ElementPlus from 'element-plus'
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import locale from 'element-plus/lib/locale/lang/zh-cn'
 import 'element-plus/dist/index.css'
 
 
@@ -28,7 +28,7 @@ const components = [
 ]
 export default function (app: App) {
     app.use(ElementPlus, {
-        locale: zhCn
+        locale
     })
     components.forEach(component => {
         app.component(component.name, component)

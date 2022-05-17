@@ -26,7 +26,7 @@ export default {
 </script>
 <script setup lang="ts">
 import TableColumn from './TableColumn.vue'
-import { defineProps, useAttrs, useSlots, ref, onMounted } from "vue"
+import { defineProps, useAttrs, useSlots, ref } from "vue"
 import type { ElTable } from 'element-plus'
 defineProps({
   tableJson: {

@@ -20,8 +20,8 @@
                 </template>
             </ez-search>
             <slot name="tableTop"></slot>
-            <ez-table v-if="panelJson.table" :table-json="panelJson.table.setting || {}" :data="tableData"
-                v-bind="panelJson.table.bindAttrs">
+            <ez-table ref="panelTable" v-if="panelJson.table" :table-json="panelJson.table.setting || {}"
+                :data="tableData" v-bind="panelJson.table.bindAttrs">
                 <template v-for="slot in Object.keys(slots)" #[slot]="scope">
                     <slot :name="slot" v-bind="scope"></slot>
                 </template>
@@ -89,6 +89,8 @@ const emits = defineEmits([
 const slots = useSlots()
 const bread = ref()
 const breadHeight = ref<number>(0)
+const panelTable = ref()
+const table = computed(() => panelTable.value.ezTable)
 const pageKey = computed(() => {
     return props.panelJson?.pagination?.paginationProps?.page || 'page'
 })
@@ -147,6 +149,9 @@ onMounted(() => {
     breadHeight.value = bread.value.offsetHeight
 })
 refreshTableData({ ...props.search }, { ...props.pagination })
+defineExpose({
+    table
+})
 </script>
 <style scoped>
 .ez-panel {

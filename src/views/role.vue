@@ -1,6 +1,9 @@
 <template>
     <ez-panel :panel-json="json" v-model:search="search" v-model:pagination="page" :tableTotal="1000" :tableData="data"
-        @refresh-table="change">
+        ref="rolePanel" @refresh-table="change">
+        <template #tableBottom>
+            <el-button type="primary" @click="clear">清 除</el-button>
+        </template>
     </ez-panel>
 </template>
 
@@ -18,6 +21,7 @@ const page = reactive({
     page: 6,
     pageSize: 30
 })
+const rolePanel = ref()
 const data = ref<any[]>([])
 function change({ combine }: any) {
     console.log(combine)
@@ -31,6 +35,9 @@ function change({ combine }: any) {
         ]
     }, 300)
 
+}
+function clear() {
+    rolePanel.value.table.clearSelection()
 }
 
 </script>

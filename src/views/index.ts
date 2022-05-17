@@ -27,6 +27,7 @@ export const json = {
     table: {
         setting: {
             columns: [
+                { type: 'selection' },
                 {
                     label: '姓名',
                     prop: 'name',

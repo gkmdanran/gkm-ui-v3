@@ -97,7 +97,7 @@ tableJson.columns配置
 |children|表格嵌套|array|-|-|
 |slotName|表格内容插槽名|string|-|-|
 |headerSlot|表格头部插槽名|string|-|-|
-|show|表格列展示|boolean|-|true|
+|show|表格列是否展示|boolean|-|true|
 |其余属性|参考ElementPlus的[Table-column属性](https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7)|-|-|-|
 
 

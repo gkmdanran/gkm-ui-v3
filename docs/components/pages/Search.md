@@ -82,7 +82,7 @@ function handleChange(val) {
 ezSearch属性
 |参数|说明|类型|可选值|默认值|
 |-|-|-|-|-|
-|searchJson|搜索表单渲染配置|object|-|-|
+|searchJson|搜索表单渲染配置|object|-|必填|
 |debounce|防抖时间，单位：ms|number|-|300|
 |modelValue / v-model|绑定搜索表单|object，仅支持ref包裹的对象|-|-|
 
@@ -105,7 +105,7 @@ searchItems\[key\]配置
 |selectOptions|选项值列表，type为select/radio/radioButton时生效|array|-|-|
 |selectProps|数据源的字段别名，type为select/radio/radioButton时生效|array|-|{label:"label",value:"value"}|
 |layout|搜索项的长度，可以是固定值，也可以通过传入对象使用栅栏布局|string / object|-|{xl:4,lg:6,md:8,sm:12,xs:24}|
-|attrs|每个控件对应的属性，可参考ElementPlus|-|-|
+|attrs|每个控件对应的属性，可参考ElementPlus|object|-|-|
 
 ezSearch插槽
 |name|说明|

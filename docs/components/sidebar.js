@@ -14,6 +14,10 @@ module.exports = [
             {
                 text: 'Container 容器',
                 link: '/components/pages/Container',
+            },
+            {
+                text: 'Panel 面板',
+                link: '/components/pages/Panel',
             }
         ]
     },
@@ -46,6 +50,16 @@ module.exports = [
             {
                 text: 'Search 搜索',
                 link: '/components/pages/Search',
+            },
+        ]
+    },
+    {
+        text: 'Navigation 导航',
+        collapsable: true,
+        children: [
+            {
+                text: 'Menu 菜单',
+                link: '/components/pages/Menu',
             },
         ]
     },

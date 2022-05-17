@@ -113,7 +113,7 @@ ezButton扩展属性
 |-|-|-|-|-|
 |confirm|二次弹窗配置|string / confirmObj|-|-|
 |throttle|节流间隔时间，-1需要手动解除按钮限制|number|-|0|
-|icon|按钮图标，只需字符串，无需传入组件|string|-|''|
+|icon|按钮图标，只需字符串，无需传入组件|string|-|-|
 |loadingIcon|按钮loading图标，只需字符串，无需传入组件|string|-|'Loading'|
 
 confirmObj

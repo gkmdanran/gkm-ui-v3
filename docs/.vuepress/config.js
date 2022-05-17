@@ -6,13 +6,14 @@ const { registerComponentsPlugin } = require('@vuepress/plugin-register-componen
 module.exports = {
     lang: 'zh-CN',
     title: 'gkmUI-Plus',
+    port: 8087,
     description: '基于ElementPlus二次开发的组件库',
 
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
     ],
     theme: defaultTheme({
-        contributors:false,
+        contributors: false,
         logo: '/assets/img/photo.jpg',
         navbar,
         sidebar,

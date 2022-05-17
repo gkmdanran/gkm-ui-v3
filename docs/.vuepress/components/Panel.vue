@@ -106,7 +106,7 @@ function clear() {
 }
 </script>
 <style scoped>
-.ez-panel ::v-deep table {
+.ez-panel ::v-deep(table) {
     margin: 0px !important;
 }
 </style>

@@ -182,12 +182,12 @@ defineExpose({
     margin-top: 10px;
 }
 
-.el-pagination ::v-deep .btn-next,
-.el-pagination ::v-deep .btn-prev {
+.el-pagination ::v-deep(.btn-next),
+.el-pagination ::v-deep(.btn-prev) {
     background-color: transparent;
 }
 
-.el-pagination ::v-deep .el-pager li {
+.el-pagination ::v-deep(.el-pager li) {
     background-color: transparent;
 }
 </style>

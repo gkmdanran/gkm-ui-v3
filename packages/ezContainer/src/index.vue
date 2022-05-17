@@ -117,7 +117,7 @@ function handleBack() {
     height: 100%;
 }
 
-.container-scroll ::v-deep .el-scrollbar__wrap {
+.container-scroll ::v-deep(.el-scrollbar__wrap) {
     overflow-x: hidden;
     overflow-y: scroll;
 }

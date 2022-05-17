@@ -107,11 +107,11 @@ function handleValueChange(newVal: any, oldVal: any, key: any, item: any,) {
 }
 </script>
 <style scoped>
-.ez-search ::v-deep .el-form-item__label {
+.ez-search ::v-deep(.el-form-item__label) {
     padding: 0;
 }
 
-.ez-search ::v-deep .el-form-item {
+.ez-search ::v-deep(.el-form-item) {
     margin-bottom: 0px;
 }
 </style>

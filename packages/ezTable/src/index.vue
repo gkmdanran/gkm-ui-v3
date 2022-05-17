@@ -44,11 +44,11 @@ defineExpose({
 })
 </script>
 <style scoped>
-.ez-table ::v-deep .el-table td {
+.ez-table ::v-deep(.el-table td) {
   padding: 8px 0;
 }
 
-.ez-table ::v-deep .el-table__header th {
+.ez-table ::v-deep(.el-table__header th) {
   color: #636365;
   font-weight: 700;
 }

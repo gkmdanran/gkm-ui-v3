@@ -78,7 +78,6 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps } from 'vue'
 const props = defineProps({
     searchJson: {
         type: Object,
@@ -108,11 +107,11 @@ function handleValueChange(newVal: any, oldVal: any, key: any, item: any,) {
 }
 </script>
 <style scoped>
-.ez-search>>>.el-form-item__label {
+.ez-search ::v-deep .el-form-item__label {
     padding: 0;
 }
 
-.ez-search>>>.el-form-item {
+.ez-search ::v-deep .el-form-item {
     margin-bottom: 0px;
 }
 </style>

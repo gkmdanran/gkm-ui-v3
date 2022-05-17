@@ -32,7 +32,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps, useAttrs } from 'vue'
+import { useAttrs } from 'vue'
 import ezIcon from '../../ezIcon/src/index.vue'
 defineProps({
     title: {
@@ -117,7 +117,7 @@ function handleBack() {
     height: 100%;
 }
 
-.container-scroll>>>.el-scrollbar__wrap {
+.container-scroll ::v-deep .el-scrollbar__wrap {
     overflow-x: hidden;
     overflow-y: scroll;
 }

@@ -32,7 +32,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps, toRefs, useSlots } from "vue"
+import { toRefs, useSlots } from "vue"
 const props = defineProps({
   col: {
     type: Object,

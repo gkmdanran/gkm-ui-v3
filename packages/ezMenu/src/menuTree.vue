@@ -29,7 +29,6 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import ezIcon from '../../ezIcon/src/index.vue'
 defineProps({
     menu: {

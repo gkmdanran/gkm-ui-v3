@@ -26,7 +26,7 @@ export default {
 </script>
 <script setup lang="ts">
 import TableColumn from './TableColumn.vue'
-import { defineProps, useAttrs, useSlots, ref } from "vue"
+import { useAttrs, useSlots, ref, } from "vue"
 import type { ElTable } from 'element-plus'
 defineProps({
   tableJson: {
@@ -44,11 +44,11 @@ defineExpose({
 })
 </script>
 <style scoped>
-.ez-table>>>.el-table td {
+.ez-table ::v-deep .el-table td {
   padding: 8px 0;
 }
 
-.ez-table>>>.el-table__header th {
+.ez-table ::v-deep .el-table__header th {
   color: #636365;
   font-weight: 700;
 }

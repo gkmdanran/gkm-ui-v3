@@ -74,7 +74,7 @@ function handleSelect() {
 }
 </script>
 <style scoped>
-.ez-table>>>table {
+.ez-table ::v-deep table {
     margin: 0px !important;
 }
 </style>

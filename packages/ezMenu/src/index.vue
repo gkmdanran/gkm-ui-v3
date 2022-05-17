@@ -11,7 +11,7 @@ export default {
 </script>
 <script setup lang="ts">
 import menuTree from './menuTree.vue'
-import { defineProps, computed, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router';
 import type { ElMenu } from 'element-plus'
 defineProps({

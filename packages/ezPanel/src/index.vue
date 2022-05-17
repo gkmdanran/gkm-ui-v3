@@ -44,7 +44,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps, useSlots, computed, ref, onMounted } from 'vue'
+import { useSlots, computed, ref, onMounted } from 'vue'
 import * as icons from '@element-plus/icons-vue'
 import ezSearch from '../../ezSearch/src/index.vue';
 const props = defineProps({
@@ -182,12 +182,12 @@ defineExpose({
     margin-top: 10px;
 }
 
-.el-pagination>>>.btn-next,
-.el-pagination>>>.btn-prev {
+.el-pagination ::v-deep .btn-next,
+.el-pagination ::v-deep .btn-prev {
     background-color: transparent;
 }
 
-.el-pagination>>>.el-pager li {
+.el-pagination ::v-deep .el-pager li {
     background-color: transparent;
 }
 </style>

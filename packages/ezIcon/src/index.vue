@@ -9,7 +9,6 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import * as icons from '@element-plus/icons-vue'
 defineProps({
     icon: {

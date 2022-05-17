@@ -5,13 +5,14 @@ const { defaultTheme } = require('@vuepress/theme-default')
 const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
 module.exports = {
     lang: 'zh-CN',
-    title: 'easyUI',
-    description: '基于elementUI二次开发的组件库',
+    title: 'gkmUI-Plus',
+    description: '基于ElementPlus二次开发的组件库',
 
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
     ],
     theme: defaultTheme({
+        contributors:false,
         logo: '/assets/img/photo.jpg',
         navbar,
         sidebar,

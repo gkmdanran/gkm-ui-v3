@@ -12,10 +12,10 @@
             (treeProps && treeProps.children) || 'children'
         ] || []" :tree-props="treeProps" :key="index" :menu="item" :parent-path="
     parentPath + (menu[(treeProps && treeProps.path) || 'path'] || '')
-"></menu-tree>
+" @click-menu-item="emits('clickMenuItem', $event)"></menu-tree>
     </el-sub-menu>
     <el-menu-item v-else :index="parentPath + (menu[(treeProps && treeProps.path) || 'path'] || '')"
-        v-bind="menu.attributes">
+        v-bind="menu.attributes" @click="emits('clickMenuItem', menu)">
         <template #title>
             <ez-icon :icon="menu[(treeProps && treeProps.icon) || 'icon']"
                 v-if="menu[(treeProps && treeProps.icon) || 'icon']"></ez-icon>
@@ -45,4 +45,5 @@ defineProps({
         type: String,
     },
 })
+const emits = defineEmits(["clickMenuItem"])
 </script>

@@ -3,7 +3,8 @@
     <el-header style="background:#ffffff">Header</el-header>
     <el-container>
       <el-aside width="200px" style="height:100%;background-color:#13113a;">
-        <ez-menu :menu-json="menuJson" active-text-color="#fff" background-color="#13113a" text-color="#fff" router>
+        <ez-menu :menu-json="menuJson" active-text-color="#fff" background-color="#13113a" text-color="#fff" router
+          @click-menu-item="handleClick">
         </ez-menu>
       </el-aside>
       <el-main style="background:#f5f7fa;padding:0">
@@ -36,7 +37,9 @@ const menuJson = {
     }
   ]
 }
-
+function handleClick(menu: any) {
+  location.href = menu.href
+}
 </script>
 <style scoped lang="less">
 /deep/ .ez-menu .el-menu-item.is-active {

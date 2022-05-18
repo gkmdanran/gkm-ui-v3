@@ -2,7 +2,7 @@
   <router-view />
 </template>
 
-<style lang="less">
+<style >
 html,body,#app{
   height: 100%;
   margin: 0;

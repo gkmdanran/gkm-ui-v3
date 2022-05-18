@@ -38,8 +38,3 @@ const menuJson = {
 }
 
 </script>
-<style scoped lang="less">
-/deep/ .ez-menu .el-menu-item.is-active {
-  background-color: #1798d3 !important;
-}
-</style>

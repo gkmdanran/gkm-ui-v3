@@ -11,6 +11,7 @@
     "build": "vue-cli-service build",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
+    "docs:serve":"pm2 start app.js --name='v3ui'",
     "lib": "vue-cli-service build --target lib packages/index.ts"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "core-js": "^3.6.5",
     "element-plus": "^2.1.11",
     "express": "^4.18.1",
+    "pm2": "^5.2.0",
     "vue": "^3.2.33",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"

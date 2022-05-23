@@ -1,4 +1,4 @@
-# Panel 菜单
+# Panel 面板
 <Panel/>
 
 

@@ -3,8 +3,6 @@ const navbar = require('./config/navbar')
 const sidebar = require('./config/sidebar')
 const { defaultTheme } = require('@vuepress/theme-default')
 const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
-const { webpackBundler } = require('@vuepress/bundler-webpack')
-
 
 module.exports = {
     lang: 'zh-CN',
@@ -28,5 +26,4 @@ module.exports = {
             componentsDir: path.resolve(__dirname, './components'),
         }),
     ],
-    bundler: webpackBundler(),
 }

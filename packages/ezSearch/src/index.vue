@@ -1,11 +1,7 @@
 <template>
     <el-form class="ez-search">
         <el-row>
-            <el-col :style="typeof item.layout === 'string' ?
-        `min-width:${item.layout}!important;max-width:${item.layout}!important;` :
-        typeof searchJson.layout === 'string' ?
-            `min-width:${searchJson.layout}!important;max-width:${searchJson.layout}!important;` :
-            ''" v-for="(item, key) in searchJson.searchItems || {}"
+            <el-col :style="getStyle(item)" v-for="(item, key) in searchJson.searchItems || {}"
                 :xl="(item.layout && item.layout.xl) || (searchJson.layout && searchJson.layout.xl) || 4"
                 :lg="(item.layout && item.layout.lg) || (searchJson.layout && searchJson.layout.lg) || 6"
                 :md="(item.layout && item.layout.md) || (searchJson.layout && searchJson.layout.md) || 8"
@@ -104,6 +100,19 @@ function handleValueChange(newVal: any, oldVal: any, key: any, item: any,) {
     timeout = window.setTimeout(() => {
         emits("change", { ...props.modelValue, [key]: value });
     }, props.debounce);
+}
+function getStyle(item:any){
+    if (!("layout" in item)) {
+        if (typeof props.searchJson.layout === "string") {
+            return `min-width:${props.searchJson.layout}!important;max-width:${props.searchJson.layout}!important;`
+        } else {
+            return "";
+        }
+    } else if (typeof item.layout === "string") {
+        return `min-width:${item.layout}!important;max-width:${item.layout}!important;`;
+    } else {
+        return "";
+    }
 }
 </script>
 <style scoped>

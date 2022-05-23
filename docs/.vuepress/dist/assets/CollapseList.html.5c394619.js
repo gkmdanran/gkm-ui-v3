@@ -1,0 +1,1 @@
+const e={key:"v-04b02ce3",path:"/components/pages/CollapseList.html",title:"CollapseList \u6298\u53E0\u5217\u8868",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1652424956e3},filePathRelative:"components/pages/CollapseList.md"};export{e as data};

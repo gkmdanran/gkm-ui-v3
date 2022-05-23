@@ -1,0 +1,1 @@
+const e={key:"v-3aa1dbe0",path:"/components/pages/Panel.html",title:"Panel \u9762\u677F",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1653316774e3},filePathRelative:"components/pages/Panel.md"};export{e as data};

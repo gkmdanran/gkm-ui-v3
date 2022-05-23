@@ -1,0 +1,1 @@
+const e={key:"v-0fce19b4",path:"/components/pages/CollapseText.html",title:"CollapseText \u6298\u53E0\u6587\u672C",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1652422029e3},filePathRelative:"components/pages/CollapseText.md"};export{e as data};

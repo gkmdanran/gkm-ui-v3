@@ -1,0 +1,1 @@
+const e={key:"v-5f90e815",path:"/components/pages/Icon.html",title:"Icon \u6309\u94AE",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1652414816e3},filePathRelative:"components/pages/Icon.md"};export{e as data};

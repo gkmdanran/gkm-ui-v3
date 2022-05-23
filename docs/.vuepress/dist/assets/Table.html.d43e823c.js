@@ -1,0 +1,1 @@
+const e={key:"v-d8d98f54",path:"/components/pages/Table.html",title:"Table \u8868\u683C",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1652770576e3},filePathRelative:"components/pages/Table.md"};export{e as data};

@@ -47,6 +47,7 @@ export default {
 import { useSlots, computed, ref, onMounted } from 'vue'
 import * as icons from '@element-plus/icons-vue'
 import ezSearch from '../../ezSearch/src/index.vue';
+import ezTable from '../../ezTable/src/index.vue';
 const props = defineProps({
     panelJson: {
         type: Object,
